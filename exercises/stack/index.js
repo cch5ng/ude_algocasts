@@ -10,6 +10,24 @@
 //   s.pop(); // returns 2
 //   s.pop(); // returns 1
 
-class Stack {}
+// main requirement: LIFO (last in first out)
+
+class Stack {
+  constructor() {
+    this.data = []
+  }
+
+  push(val) {
+    this.data.push(val)
+  }
+
+  pop() {
+    return this.data.pop()
+  }
+
+  peek() {
+    return this.data[this.data.length - 1]
+  }
+}
 
 module.exports = Stack;
