@@ -24,6 +24,49 @@
 
 const Queue = require('./queue');
 
-function weave(sourceOne, sourceTwo) {}
+function weave(sourceOne, sourceTwo) {
+  let q3 = new Queue();
+
+  // instructor suggested
+  while(sourceOne.peek() || sourceTwo.peek()) {
+    if (sourceOne.peek()) {
+      q3.add(sourceOne.remove());
+    }
+
+    if (sourceTwo.peek()) {
+      q3.add(sourceTwo.remove());
+    }
+  }
+
+  // my redundant way
+  // while(sourceOne.peek() && sourceTwo.peek()) {
+  //   // remove item from sourceOne
+  //   let rem1 = sourceOne.remove()
+  //   // add removed to q3
+  //   q3.add(rem1)
+  //   // remove item from sourceTwo
+  //   let rem2 = sourceTwo.remove()
+  //   // add removed to q3
+  //   q3.add(rem2)
+  // }
+
+  // if (!sourceOne.peek) {
+  //   while (sourceTwo.peek()) {
+  //     let rem2 = sourceTwo.remove()
+  //     // add removed to q3
+  //     q3.add(rem2)
+  //   }
+  // }
+
+  // if (!sourceTwo.peek) {
+  //   while (sourceOne.peek()) {
+  //     let rem1 = sourceOne.remove()
+  //     // add removed to q3
+  //     q3.add(rem1)
+  //   }
+  // }
+
+  return q3;
+}
 
 module.exports = weave;
