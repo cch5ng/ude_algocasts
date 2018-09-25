@@ -11,6 +11,7 @@
 // https://www.w3schools.com/charsets/ref_html_ascii.asp
 // char codes A - Z; 65 - 90
 // char codes a - z; 97 - 122
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt
 
 function anagrams(stringA, stringB) {
   let obj1 = {};
