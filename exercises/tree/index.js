@@ -54,8 +54,16 @@ class Tree {
     //fn(node)
   }
 
-  //traverseDF() {
-  //}
+  traverseDF(fn) {
+    let nodeAr = []
+    nodeAr.push(this.root)
+
+    while(nodeAr.length) {
+      let curNode = nodeAr.shift();
+      nodeAr = curNode.children.concat(nodeAr)
+      fn(curNode)
+    }
+  }
 }
 
 module.exports = { Tree, Node };
