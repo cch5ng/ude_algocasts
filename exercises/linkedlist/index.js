@@ -53,6 +53,10 @@ class LinkedList {
 
   getLast() {
     let curNode = this.head
+
+    if (!curNode.next) {
+      return curNode
+    }
     while (curNode.next) {
       curNode = curNode.next;
     }
@@ -90,25 +94,37 @@ class LinkedList {
   }
 
   insertLast(data) {
-    let previousLast = this.getLast()
     let node = new Node(data)
-    previousLast.next = node
+
+    if (!this.head) {
+      this.head = node
+    } else if (!this.head.next) {
+      this.head.next = node
+    } else if (this.head.next) {
+      let previousLast = this.getLast()
+      previousLast.next = node      
+    }
   }
 
   getAt(idx) {
+    if (!this.head) {
+      console.log('gets line 104')
+      return null
+    }
     if (idx > this.size() - 1) {
       return null
     }
     if (idx === 0) {
       return this.head
+    } else if (idx === 1 && this.head.next) {
+      return this.head.next
+    } else if (idx === this.size() - 1) {
+      return this.getLast()
     } else {
-      let counter = 1
-      let curNode = this.head.next
+      let counter = 2
+      let curNode = this.head.next.next
 
-      if (idx === 1) {
-        return curNode
-      } 
-      while (counter <= idx) {
+      while (counter < idx) {
         counter += 1
         curNode = curNode.next
       }
