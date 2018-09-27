@@ -162,6 +162,15 @@ class LinkedList {
     }
   }
 
+  forEach(fn) {
+    let size = this.size()
+    if (size > 0) {
+      for (let i = 0; i < size; i++) {
+        let node = this.getAt(i)
+        fn(node)
+      }
+    }
+  }
 
 
 }
