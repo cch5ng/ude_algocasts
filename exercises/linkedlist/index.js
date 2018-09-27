@@ -68,10 +68,12 @@ class LinkedList {
   }
 
   removeFirst() {
-    if (this.head.next) {
-      this.head = this.head.next      
-    } else if (!this.head.next) {
-      this.clear()
+    if (this.head) {
+      if (this.head.next) {
+        this.head = this.head.next      
+      } else if (!this.head.next) {
+        this.clear()
+      }      
     }
   }
 
@@ -131,6 +133,22 @@ class LinkedList {
       return curNode
     }
   }
+
+  removeAt(idx) {
+    if (idx === 0) {
+      this.removeFirst()
+    } else if (idx === this.size() - 1) {
+      this.removeLast()
+    } else {
+      let prevNode = this.getAt(idx - 1)
+      let nextNode = this.getAt(idx + 1)
+      if (nextNode) {
+        prevNode.next = nextNode
+      }
+    }
+  }
+
+
 
 }
 
