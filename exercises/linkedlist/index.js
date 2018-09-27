@@ -110,7 +110,6 @@ class LinkedList {
 
   getAt(idx) {
     if (!this.head) {
-      console.log('gets line 104')
       return null
     }
     if (idx > this.size() - 1) {
@@ -145,6 +144,21 @@ class LinkedList {
       if (nextNode) {
         prevNode.next = nextNode
       }
+    }
+  }
+
+  insertAt(data, idx) {
+    if (idx === 0) {
+      this.insertFirst(data)
+    } else if (idx >= this.size() - 1) {
+      this.insertLast(data)
+    } else {
+      let node = new Node(data)
+      let prevNode = this.getAt(idx - 1)
+      let nextNode = this.getAt(idx)
+
+      prevNode.next = node
+      node.next = nextNode
     }
   }
 
