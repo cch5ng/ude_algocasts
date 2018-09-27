@@ -67,7 +67,25 @@ class LinkedList {
     if (this.head.next) {
       this.head = this.head.next      
     } else if (!this.head.next) {
-      this.head = null
+      this.clear()
+    }
+  }
+
+  removeLast() {
+    if (this.head) {
+      let prevNode = this.head
+      let curNode = this.head
+
+      if (this.head.next) {
+        curNode = this.head.next
+        while(curNode.next) {
+          prevNode = curNode
+          curNode = curNode.next
+        }
+        prevNode.next = null
+      } else {
+        this.clear()
+      }
     }
   }
 
