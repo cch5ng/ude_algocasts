@@ -44,6 +44,7 @@ class Node {
     }
   }
 
+  // something is wrong here
   contains(data) {
     // if tree contains node with data === data, return that node
     // else return null
@@ -52,35 +53,44 @@ class Node {
       return curNode
     }
     // no left and data < cur data
-    if (!this.left && data < curNode.data) {
+    else if (!this.left && data < curNode.data) {
       return null
     }
     // no right and data > cur data
-    if (!this.right && data > curNode.data) {
+    else if (!this.right && data > curNode.data) {
       return null
     }
     //???not sure here
     // has left and data < cur data
-    if (this.left && data < curNode.data) {
+    else if (this.left && data <= curNode.data) {
       curNode = this.left
 
-      if (curNode.data === data) {
-        return curNode
-      } else {
-        curNode.contains(data)
-      }
+      return curNode.contains(data)
     }
     // has right and data > cur data
-    if (this.right && data > curNode.data) {
+    else if (this.right && data >= curNode.data) {
       curNode = this.right
 
-      if (curNode.data === data) {
-        return curNode
-      } else {
-        curNode.contains(data)
-      }
+      return curNode.contains(data)
+    } else {
+      return null 
     }
-    return null
+  }
+
+  print() {
+    let nodeList = [this]
+    while (nodeList.length) {
+      let curNode = nodeList.shift()
+      console.log('curNode val', curNode.value)
+      let subList = []
+      if (curNode.left) {
+        subList.push(curNode.left)
+      }
+      if (curNode.right) {
+        subList.push(curNode.right)
+      }
+      nodeList.concat(subList)
+    }
   }
 
 }
