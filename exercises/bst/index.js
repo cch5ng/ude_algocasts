@@ -77,6 +77,7 @@ class Node {
     }
   }
 
+  // prints nodes in bfs order
   print() {
     let nodeList = [this]
     while (nodeList.length) {
