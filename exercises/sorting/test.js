@@ -13,13 +13,13 @@ function getSortedArray() {
 }
 
 describe('Bubble sort', () => {
-  test('sorts an array', () => {
+  test.skip('sorts an array', () => {
     expect(bubbleSort(getArray())).toEqual(getSortedArray());
   });
 });
 
 describe('Selection sort', () => {
-  test('sorts an array', () => {
+  test.skip('sorts an array', () => {
     expect(selectionSort(getArray())).toEqual(getSortedArray());
   });
 });
