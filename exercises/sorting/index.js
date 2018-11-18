@@ -22,7 +22,26 @@ function mergeSort(arr) {
 }
 
 function merge(left, right) {
+	// version after watching the intro video
+	let mergedAr = [];
+	while (left.length && right.length) {
+		if (left[0] <= right[0]) {
+			mergedAr.push(left.shift())
+		} else {
+			mergedAr.push(right.shift())
+		}
+	}
+	if (left.length) {
+		mergedAr = mergedAr.concat(left)
+	}
+	if (right.length) {
+		mergedAr = mergedAr.concat(right)
+	}
+	return mergedAr
+
+
 	// version before watching the solution video
+	/*
 	let counterLeft = 0;
 	let counterRight = 0;
 	let mergedAr = [];
@@ -46,6 +65,7 @@ function merge(left, right) {
 	}
 	//console.log('mergedAr', mergedAr)
 	return mergedAr;
+	*/
 }
 
 module.exports = { bubbleSort, selectionSort, mergeSort, merge };
