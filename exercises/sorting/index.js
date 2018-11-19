@@ -31,6 +31,7 @@ function merge(left, right) {
 			mergedAr.push(right.shift())
 		}
 	}
+	// when one array is empty then all of the other array should be merged
 	if (left.length) {
 		mergedAr = mergedAr.concat(left)
 	}
