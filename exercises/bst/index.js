@@ -31,6 +31,39 @@ class Node {
 		}
 	}
 
+	/* depth first */
+	contains(data) {
+		// if true, return node
+		// if false, return null
+
+		let nodes = [this]
+
+		while (nodes.length) {
+			let curNode = nodes.shift(); // fifo?
+			if (curNode.data === data) {
+				return curNode;
+			} else {
+				if (curNode.left) {
+					nodes.push(curNode.left)
+				}
+				if (curNode.right) {
+					nodes.push(curNode.right)
+				}
+			}
+		}
+		return null
+
+	}
+
+	/* breadth first
+	contains(data) {
+		// if true, return node
+		// if false, return null
+
+		
+	}
+	*/
+
 }
 
 module.exports = Node;
