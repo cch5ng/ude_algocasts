@@ -20,24 +20,16 @@ class Node {
 	}
 
 	insert(data) {
-		let n = new Node(data);
-
-		if (data < this.data) {
-			if (this.left) {
-				this.left.insert(data)
-			} else {
-				this.left = n;
-			}
-		}
-		if (data > this.data) {
-			if (this.right) {
-				this.right.insert(data)
-			} else {
-				this.right = n;
-			}
+		if (data < this.data && this.left) {
+			this.left.insert(data)
+		} else if (data < this.data) {
+			this.left = new Node(data);
+		} else if (data > this.data && this.right) {
+			this.right.insert(data)
+		} else if (data > this.data) {
+			this.right = new Node(data);
 		}
 	}
-
 
 }
 
