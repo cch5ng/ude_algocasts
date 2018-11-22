@@ -9,10 +9,18 @@ test('Node can insert correctly', () => {
   node.insert(5);
   node.insert(15);
   node.insert(17);
+  // my tests
+  node.insert(14);
+  node.insert(13);
 
   expect(node.left.data).toEqual(5);
   expect(node.right.data).toEqual(15);
   expect(node.right.right.data).toEqual(17);
+  // my assertions
+  expect(node.right.left.data).toEqual(14);
+  expect(node.right.left.left.data).toEqual(13);
+
+
 });
 
 test('Contains returns node with the same data', () => {
