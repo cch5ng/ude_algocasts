@@ -33,6 +33,7 @@ test('Contains returns node with the same data', () => {
   node.insert(3);
 
   const three = node.left.left.right;
+  //console.log(node.contains(3))
   expect(node.contains(3)).toEqual(three);
 });
 

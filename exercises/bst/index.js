@@ -31,7 +31,23 @@ class Node {
 		}
 	}
 
+	contains(data) {
+		// done after reviewing the video
+		if (data === this.data) {
+			return this;
+		} 
+
+		if (data < this.data && this.left) {
+			return this.left.contains(data);
+		} else if (data > this.data && this.right) {
+			return this.right.contains(data);
+		} 
+			
+		return null;
+	}
+
 	/* depth first */
+	/*
 	contains(data) {
 		// if true, return node
 		// if false, return null
@@ -54,6 +70,7 @@ class Node {
 		return null
 
 	}
+	*/
 
 	/* breadth first
 	contains(data) {
