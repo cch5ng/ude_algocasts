@@ -12,6 +12,46 @@
 //   l.insertLast('c')
 //   midpoint(l); // returns { data: 'b' }
 
-function midpoint(list) {}
+function updateLists (node, forwardList, backwardList) {
+	forwardList.push(node);
+	backwardList.unshift(node);	
+}
+
+function midpoint(list) {
+	let forwardList = [];
+	let backwardList = [];
+	let curNode;
+
+	if (!list.head) {
+		return 'empty list';
+	} else {
+		curNode = list.head;
+		updateLists(curNode, forwardList, backwardList);
+
+		while (curNode.next) {
+			curNode = curNode.next;
+			updateLists(curNode, forwardList, backwardList);
+		}
+	}
+
+	let idxf = 0;
+	let idxb = backwardList.length - 1;
+
+	while (idxf < idxb) {
+		idxf += 1;
+		idxb -= 1;
+	}
+
+	if (idxf === idxb) {
+		return forwardList[idxf];
+	} else {
+		return forwardList[idxf - 1];
+	}
+
+	//if (forwardList[idxf] === backwardList[idxb]) {
+	//return forwardList[idxf];
+	//}
+
+}
 
 module.exports = midpoint;
