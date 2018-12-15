@@ -18,39 +18,46 @@ function updateLists (node, forwardList, backwardList) {
 }
 
 function midpoint(list) {
-	let forwardList = [];
-	let backwardList = [];
-	let curNode;
 
-	if (!list.head) {
-		return 'empty list';
-	} else {
-		curNode = list.head;
-		updateLists(curNode, forwardList, backwardList);
+	let slow = list.head || null;
+	let fast = list.head || null;
 
-		while (curNode.next) {
-			curNode = curNode.next;
-			updateLists(curNode, forwardList, backwardList);
-		}
+	while(fast.next && fast.next.next) {
+		slow = slow.next;
+		fast = fast.next.next;
 	}
 
-	let idxf = 0;
-	let idxb = backwardList.length - 1;
+	return slow;
 
-	while (idxf < idxb) {
-		idxf += 1;
-		idxb -= 1;
-	}
+	// let forwardList = [];
+	// let backwardList = [];
+	// let curNode;
 
-	if (idxf === idxb) {
-		return forwardList[idxf];
-	} else {
-		return forwardList[idxf - 1];
-	}
+	// if (!list.head) {
+	// 	return 'empty list';
+	// } else {
+	// 	curNode = list.head;
+	// 	updateLists(curNode, forwardList, backwardList);
 
-	//if (forwardList[idxf] === backwardList[idxb]) {
-	//return forwardList[idxf];
-	//}
+	// 	while (curNode.next) {
+	// 		curNode = curNode.next;
+	// 		updateLists(curNode, forwardList, backwardList);
+	// 	}
+	// }
+
+	// let idxf = 0;
+	// let idxb = backwardList.length - 1;
+
+	// while (idxf < idxb) {
+	// 	idxf += 1;
+	// 	idxb -= 1;
+	// }
+
+	// if (idxf === idxb) {
+	// 	return forwardList[idxf];
+	// } else {
+	// 	return forwardList[idxf - 1];
+	// }
 
 }
 
