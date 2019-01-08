@@ -27,6 +27,7 @@ function chunk(array, size) {
 		}
 	}
 
+	// case
 	if (innerAr.length) {
 		resAr.push(innerAr);
 	}
